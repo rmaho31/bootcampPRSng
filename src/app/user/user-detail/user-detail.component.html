@@ -1,0 +1,48 @@
+<div class='component-content'>
+  <div class="container center">
+    <h1 class="display-4">{{title}}</h1>
+  </div>
+  <div *ngIf="!user">
+    <img src="assets/loading.gif">
+  </div>
+  <table class="table table-sm" *ngIf='user'>
+    <tr>
+      <td>Id</td>
+      <td>{{user.id}}</td>
+    </tr>
+    <tr>
+      <td>UserName</td>
+      <td>{{user.userName}}</td>
+    </tr>
+    <tr>
+      <td>FirstName</td>
+      <td>{{user.firstName}}</td>
+    </tr>
+    <tr>
+      <td>LastName</td>
+      <td>{{user.lastName}}</td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>{{user.phoneNumber}}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{user.email}}</td>
+    </tr>
+    <tr>
+      <td>Reviewer</td>
+      <td>{{user.reviewer?"Yes":"No"}}</td>
+    </tr>
+    <tr>
+      <td>Admin</td>
+      <td>{{user.admin?"Yes":"No"}}</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <a routerLink='/users/edit/{{user.id}}' class='btn btn-primary' title='Edit'>Edit</a>
+        <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,45 @@
+<div class='component-content'>
+  <div class="container center">
+    <h1 class="display-4">{{title}} | <span><a routerLink='/purchaserequests/create'>
+          <img id='createnew' width='40' height='40' src='assets/createNew.png' title='Add New'></a> |
+      </span>
+      <span *ngIf="this.syssvc.user.reviewer"><a routerLink='/purchaserequests/review'>
+          Review</a>
+      </span></h1>
+  </div>
+  <div *ngIf='!purchaserequests'>
+    <img src='assets/loading.gif'>
+  </div>
+  <table class="table table-sm" *ngIf='purchaserequests'>
+    <tr>
+      <th class="table-secondary btn-link"><u>User</u></th>
+      <th class="table-secondary btn-link"><u>Description</u></th>
+      <th class="table-secondary btn-link"><u>Justification</u></th>
+      <th class="table-secondary btn-link"><u>Date Needed</u></th>
+      <th class="table-secondary btn-link"><u>Delivery Mode</u></th>
+      <th class="table-secondary btn-link"><u>Status</u></th>
+      <th class="table-secondary btn-link"><u>Total</u></th>
+      <th class="table-secondary btn-link"><u>Submitted Date</u></th>
+      <th class="table-secondary btn-link"><u>ReasonForRejection</u></th>
+    </tr>
+    <tr *ngFor='let purchaserequest of purchaserequests'>
+      <td>{{purchaserequest.user.userName}}</td>
+      <td>{{purchaserequest.description}}</td>
+      <td>{{purchaserequest.justification}}</td>
+      <td>{{purchaserequest.dateNeeded | date}}</td>
+      <td>{{purchaserequest.deliveryMode}}</td>
+      <td>{{purchaserequest.status}}</td>
+      <td>{{purchaserequest.total | currency}}</td>
+      <td>{{purchaserequest.submittedDate | date}}</td>
+      <td>{{purchaserequest.reasonForRejection}}</td>
+      <td class='actions'>
+        <a routerLink='/purchaserequests/detail/{{purchaserequest.id}}'><img src='assets/userDetail.png' width='50'
+            height='50' title='Detail'></a>
+        <a routerLink='/purchaserequests/edit/{{purchaserequest.id}}'><img src='assets/userEdit.png' width='50' height='50'
+            title='Edit'></a>
+        <a routerLink='/lineitems/list/{{purchaserequest.id}}'><img src='assets/requestLines.png' width='50' height='50'
+            title='LineItems'></a>
+      </td>
+    </tr>
+  </table>
+</div>

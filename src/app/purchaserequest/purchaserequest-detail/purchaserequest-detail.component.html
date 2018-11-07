@@ -1,0 +1,53 @@
+<div class="component-content">
+  <div class="container center">
+    <h1 class="display-4">{{title}}</h1>
+  </div>
+  <div *ngIf="!purchaserequest">
+    <img src="assets/loading.gif">
+  </div>
+  <table class="table table-sm" *ngIf='purchaserequest'>
+    <tr>
+      <td>User</td>
+      <td>{{purchaserequest.user.userName}}</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>{{purchaserequest.description}}</td>
+    </tr>
+    <tr>
+      <td>Justification</td>
+      <td>{{purchaserequest.justification}}</td>
+    </tr>
+    <tr>
+      <td>Date Needed</td>
+      <td>{{purchaserequest.dateNeeded | date}}</td>
+    </tr>
+    <tr>
+      <td>Delivery Mode</td>
+      <td>{{purchaserequest.deliveryMode}}</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>{{purchaserequest.status}}</td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td>{{purchaserequest.total | currency}}</td>
+    </tr>
+    <tr>
+      <td>Submitted Date</td>
+      <td>{{purchaserequest.submittedDate | date}}</td>
+    </tr>
+    <tr>
+      <td>Reason For Rejection</td>
+      <td>{{purchaserequest.reasonForRejection}}</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <button (click)="submit()" class='btn btn-danger' title='Submit' *ngIf="this.purchaserequest.user.id === this.systemsvc.user.id && this.purchaserequest.status === 'New'">Submit</button>
+        <a routerLink='/purchaserequests/edit/{{purchaserequest.id}}' class='btn btn-primary' title='Edit'>Edit</a>
+        <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,61 @@
+<div class='component-content'>
+  <div class="container center">
+    <h1 class="display-4">PurchaseRequest</h1>
+  </div>
+  <div *ngIf='!purchaseRequest'>
+    <img src='assets/loading.gif'>
+  </div>
+  <table class="table table-sm" *ngIf='purchaseRequest'>
+    <tr>
+      <td>User</td>
+      <td>{{purchaseRequest.user.userName}}</td>
+      <td>Description</td>
+      <td>{{purchaseRequest.description}}</td>
+    </tr>
+    <tr>
+      <td>Justification</td>
+      <td>{{purchaseRequest.justification}}</td>
+      <td>Date Needed</td>
+      <td>{{purchaseRequest.dateNeeded | date}}</td>
+    </tr>
+    <tr>
+      <td>Delivery Mode</td>
+      <td>{{purchaseRequest.deliveryMode}}</td>
+      <td>Status</td>
+      <td>{{purchaseRequest.status}}</td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td>{{purchaseRequest.total | currency}}</td>
+      <td>Submitted Date</td>
+      <td>{{purchaseRequest.submittedDate | date}}</td>
+    </tr>
+    <tr>
+      <td>Reason For Rejection</td>
+      <td>{{purchaseRequest.reasonForRejection}}</td>
+    </tr>
+  </table>
+  <div class="container center">
+    <h3 class="display-4">{{title}} | <span><a routerLink='/lineitems/create/{{purchaseRequest.id}}'>
+          <img id='createnew' width='30' height='30' src='assets/createNew.png' title='Add New'></a></span></h3>
+  </div>
+  <div *ngIf='!lineitems'>
+    <img src='assets/loading.gif'>
+  </div>
+  <table class="table table-sm" *ngIf='lineitems'>
+    <tr>
+      <th class="table-secondary btn-link"><u>Product</u></th>
+      <th class="table-secondary btn-link"><u>Price</u></th>
+      <th class="table-secondary btn-link"><u>Quantity</u></th>
+    </tr>
+    <tr *ngFor='let lineitem of lineitems'>
+      <td>{{lineitem.product.name}}</td>
+      <td>{{lineitem.product.price | currency}}</td>
+      <td>{{lineitem.quantity}}</td>
+      <td class='actions'>
+        <a routerLink='/lineitems/detail/{{lineitem.id}}'><img src='assets/userDetail.png' width='50' height='50' title='Detail'></a>
+        <a routerLink='/lineitems/edit/{{lineitem.id}}'><img src='assets/userEdit.png' width='50' height='50' title='Edit'></a>
+      </td>
+    </tr>
+  </table>
+</div>

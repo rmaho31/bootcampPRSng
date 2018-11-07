@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link active" routerLink='/home/' id="dropdown01" aria-haspopup="true" aria-expanded="false">Home</a>
+      </li>
+      <app-menu-item *ngFor="let menu of menus" [menu]="menu" [items]="menu" ></app-menu-item>
+      <li class="nav-item dropdown">
+        <a class="nav-link active" routerLink='/about/' id="dropdown01" aria-haspopup="true" aria-expanded="false">About</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input [(ngModel)]="searchText" name="searchText" class="form-control mr-sm-2" type="text" placeholder="Search"
+        aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="openModal('search-modal')">Search</button>
+    </form>
+  </div>
+</nav>
+<jw-modal id="search-modal">
+  <h1>Google Custom Search API</h1>
+  <div *ngIf='!searchRes'>
+    <img src='assets/loading.gif'>
+  </div>
+  <table class="table table-sm" *ngIf='searchRes'>
+    <tr>
+      <th class="table-secondary btn-link"><u>Title</u></th>
+      <th class="table-secondary btn-link"><u>Snippet</u></th>
+      <th class="table-secondary btn-link"><u>Link</u></th>
+      <th class="table-secondary btn-link"><u>Photo</u></th>
+    </tr>
+    <tr *ngFor='let item of searchRes'>
+      <td>{{item.title}}</td>
+      <td>{{item.snippet}}</td>
+      <td><a href="{{item.link}}">{{item.displayLink}}</a></td>
+      <td><img src="{{item.pagemap.cse_image[0].src}}"/></td>
+        </tr> 
+      </table>  
+  <button (click)="closeModal('search-modal');">Close</button>
+</jw-modal>

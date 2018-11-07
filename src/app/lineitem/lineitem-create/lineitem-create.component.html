@@ -1,0 +1,37 @@
+<div class='component-content'>
+  <div class="container center">
+    <h1 class="display-4">{{title}}</h1>
+  </div>
+  <div *ngIf='!lineitem'>
+    <img src='assets/loading.gif'>
+  </div>
+  <div *ngIf='lineitem'>
+    <form #myForm="ngForm">
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="product">Product:</label>
+        <div class=' col-sm-6'>
+          <select [(ngModel)]='lineitem.product' class='form-control' name='product' id='product' #product="ngModel">
+            <option *ngFor="let product of products" [ngValue]="product">{{product.name}}</option>
+          </select>
+        </div>
+        <div *ngIf="product.invalid && product.touched" class="col-form-label col-sm-2 text-danger">
+          <label *ngIf="product?.errors.required">Required</label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="quantity">Quantity:</label>
+        <div class="col-sm-8">
+          <input [(ngModel)]='lineitem.quantity' name='quantity' type="number" class="form-control" id="quantity"
+            #quantity="ngModel" required min="1">
+        </div>
+        <div *ngIf="quantity.invalid && quantity.touched" class="col-form-label col-sm-2 text-danger">
+          <label *ngIf="quantity?.errors.required">Required</label>
+          <label *ngIf="quantity?.errors.min">Minimum 1</label>
+        </div>
+      </div>
+      <div class='form-group'>
+        <button (click)='create()' class='btn btn-primary' [disabled]="!myForm.valid">Create</button>
+      </div>
+    </form>
+  </div>
+</div>

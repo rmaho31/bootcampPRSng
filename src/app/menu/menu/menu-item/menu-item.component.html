@@ -1,0 +1,10 @@
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle active" href="http://example.com" id="dropdown01" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">{{menu.title}}</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown01">
+    <ng-container *ngFor="let item of items; let i = index">
+      <a class="dropdown-item" routerLink="{{item.route}}" title="{{item.display}}">{{item.title}}</a>
+      <a class="dropdown-item" href="" *ngIf="item.display === 'users' && i > 0" title="Logout" (click)='logout()'>Logout</a>
+    </ng-container>
+  </div>
+</li>

@@ -1,0 +1,78 @@
+<div class='component-content'>
+  <div *ngIf="!vendor">
+    <img src="assets/loading.gif">
+  </div>
+  <table class="table table-sm" *ngIf='vendor'>
+    <tr>
+      <td><h1>[{{vendor.name}}]</h1></td>
+      <td></td>
+      <td><h1 class="display-4">{{title}}</h1></td>
+    </tr>
+    <tr>
+      <td>Address: {{vendor.address}}</td>
+      <td>City: {{vendor.city}}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>State: {{vendor.state}}</td>
+      <td>Zip: {{vendor.zip}}</td>
+      <td>Discounts applied at > 1000(10%) 5000(20%) 10000(30%)</td>
+    </tr>
+    <tr>
+      <td>Phone: {{vendor.phoneNumber}}</td>
+      <td>Email: {{vendor.email}}</td>
+    </tr>
+  </table>
+</div>
+<div *ngIf='!lineitems'>
+  <img src='assets/loading.gif'>
+</div>
+<div class='lefthalf'>
+  <span class='component-title'>Items</span>
+</div>
+<table class="table table-sm" *ngIf='lineitems'>
+  <tr>
+    <th><u>PartNumber</u></th>
+    <th><u>Description</u></th>
+    <th><u>Quantity</u></th>
+    <th><u>Price</u></th>
+    <th><u>Total Price</u></th>
+  </tr>
+  <tr *ngFor='let lineitem of lineitems'>
+    <td>{{lineitem.product.partNumber}}</td>
+    <td>{{lineitem.product.name}}</td>
+    <td>{{lineitem.quantity}}</td>
+    <td>{{lineitem.product.price | currency}}</td>
+    <td>{{lineitem.quantity*lineitem.product.price | currency}} </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Subtotal:</td>
+    <td>{{totalPrice | currency}}</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Tax:</td>
+    <td>{{totalPrice*.05 | currency}}</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Shipping:</td>
+    <td>{{totalPrice*.01 | currency}}</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Total:</td>
+    <td>{{totalPrice*1.05*1.01 | currency}}</td>
+  </tr>
+</table>
+<div><p class="center">If you have any questions please contact bootcamp@email.com</p></div>
+<div><button (click)="print()" class='btn' title='Print'>Print</button></div>

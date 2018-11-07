@@ -1,0 +1,32 @@
+<div class='component-content'>
+  <div class="container center">
+    <h1 class="display-4">{{title}}</h1>
+  </div>
+  <div *ngIf="!lineitem">
+    <img src="assets/loading.gif">
+  </div>
+  <table class="table table-sm" *ngIf='lineitem'>
+    <tr>
+      <td>UserName</td>
+      <td>{{lineitem.purchaseRequest.user.userName}}</td>
+    </tr>
+    <tr>
+      <td>Product Name</td>
+      <td>{{lineitem.product.name}}</td>
+    </tr>
+    <tr>
+      <td>Product Price</td>
+      <td>{{lineitem.product.price | currency}}</td>
+    </tr>
+    <tr>
+      <td>Quantity</td>
+      <td>{{lineitem.quantity}}</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <a routerLink='/lineitems/edit/{{lineitem.id}}' class='btn btn-primary' title='Edit'>Edit</a>
+        <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+      </td>
+    </tr>
+  </table>
+</div>

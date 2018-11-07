@@ -1,0 +1,84 @@
+<div class='component-content'>
+  <div class="container center">
+    <h1 class="display-4">{{title}}</h1>
+  </div>
+  <div *ngIf='!user'>
+    <img src='assets/loading.gif'>
+  </div>
+  <div *ngIf='user'>
+    <form #myForm="ngForm">
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="username">Username:</label>
+        <div class="col-sm-8">
+          <input [(ngModel)]='user.userName' name='userName' type="text" class="form-control" id="username" #userName="ngModel"
+            placeholder="UserName" required minlength="4" maxlength="25">
+        </div>
+        <div *ngIf="userName.invalid && userName.touched" class="col-form-label col-sm-2 text-danger">
+          <label *ngIf="userName?.errors.required">Required</label>
+          <label *ngIf="userName?.errors.minlength">4 Chars Min</label>
+          <label *ngIf="userName?.errors.maxlength">25 Chars Max</label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="firstName">FirstName:</label>
+        <div class="col-sm-8">
+          <input [(ngModel)]='user.firstName' name='firstName' type="text" class="form-control" id="firstName"
+            #firstName="ngModel" placeholder="FirstName" required maxlength="25">
+        </div>
+        <div *ngIf="firstName.invalid && firstName.touched" class="col-form-label col-sm-2 text-danger">
+          <label *ngIf="firstName?.errors.required">Required</label>
+          <label *ngIf="firstName?.errors.maxlength">25 Chars Max</label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="lastName">LastName:</label>
+        <div class="col-sm-8">
+          <input [(ngModel)]='user.lastName' name='lastName' type="text" class="form-control" id="lastName" #lastName="ngModel"
+            placeholder="LastName" required maxlength="25">
+        </div>
+        <div *ngIf="lastName.invalid && lastName.touched" class="col-form-label col-sm-2 text-danger">
+          <label *ngIf="lastName?.errors.required">Required</label>
+          <label *ngIf="firstName?.errors.maxlength">25 Chars Max</label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="phoneNumber">PhoneNumber:</label>
+        <div class="col-sm-8">
+          <input [(ngModel)]='user.phoneNumber' name='phoneNumber' type="tel" class="form-control" id="phoneNumber"
+            placeholder="123-123-1234" #phoneNumber="ngModel" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+        </div>
+        <div *ngIf="phoneNumber.invalid && phoneNumber.touched" class="col-form-label col-sm-2 text-danger">
+          <label *ngIf="phoneNumber?.errors.required">Required</label>
+          <label *ngIf="phoneNumber?.errors.pattern">xxx-xxx-xxxx</label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="email">Email:</label>
+        <div class="col-sm-8">
+          <input [(ngModel)]='user.email' name='email' type="email" class="form-control" id="email" #email="ngModel"
+            placeholder="email@site.com" required pattern=".+@.+.com" maxlength="75">
+        </div>
+        <div *ngIf="email.invalid && email.touched" class="col-form-label col-sm-2 text-danger">
+          <label *ngIf="email?.errors.required">Required</label>
+          <label *ngIf="email?.errors.pattern">Invalid Email Format</label>
+          <label *ngIf="email?.errors.maxlength">75 Chars Max</label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-form-label col-sm-2">IsReviewer:</label>
+        <div class="col-sm-8">
+          <input [(ngModel)]="user.reviewer" class="form-control" type="checkbox" name="reviewer" #reviewer="ngModel">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-form-label col-sm-2">IsAdmin:</label>
+        <div class="col-sm-8">
+          <input [(ngModel)]="user.admin" class="form-control" type="checkbox" name="admin" #admin="ngModel">
+        </div>
+      </div>
+      <div class='form-group'>
+        <button (click)='save()' class='btn btn-primary' [disabled]='!myForm.valid'>Save</button>
+      </div>
+    </form>
+  </div>
+</div>
