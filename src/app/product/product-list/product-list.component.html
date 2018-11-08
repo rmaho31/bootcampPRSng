@@ -1,4 +1,4 @@
-<div class='component-content'>
+<div class='list-box'>
   <div class="container center">
     <h1 class="display-4">{{title}} | <span><a routerLink='/products/create'>
           <img id='createnew' width='40' height='40' src='assets/createNew.png' title='Add New'></a>
@@ -8,13 +8,16 @@
     <img src='assets/loading.gif'>
   </div>
   <table class="table table-sm" *ngIf='products'>
+    <thead>
     <tr>
-      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('vendor.name')"><u>Vendor
+      <th><a class="btn btn-link font-weight-bold" (click)="setSortBy('vendor.name')"><u>Vendor
             Name</u></a></th>
-      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('partNumber')"><u>PartNumber</u></a></th>
-      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('name')"><u>Name</u></a></th>
-      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('price')"><u>Price</u></a></th>
+      <th><a class="btn btn-link font-weight-bold" (click)="setSortBy('partNumber')"><u>PartNumber</u></a></th>
+      <th><a class="btn btn-link font-weight-bold" (click)="setSortBy('name')"><u>Name</u></a></th>
+      <th><a class="btn btn-link font-weight-bold" (click)="setSortBy('price')"><u>Price</u></a></th>
+      <th>Action</th>
     </tr>
+  </thead>
     <tr *ngFor='let product of products  | sort: {sortBy: sortBy, direction: direction}'>
       <td>{{product.vendor.name}}</td>
       <td>{{product.partNumber}}</td>

@@ -1,4 +1,5 @@
-<div class='component-content'>
+<!-- <div class='component-content'> -->
+  <div class = "list-box">
   <div class="container center">
     <h1 class="display-4">{{title}} | <span *ngIf="this.syssvc.user.admin"><a routerLink='/users/create'>
           <img id='createnew' width='40' height='40' src='assets/userCreate.png' title='Add New'></a>
@@ -7,17 +8,20 @@
   <div *ngIf='!users'>
     <img src='assets/loading.gif'>
   </div>
+
   <table class="table table-sm" *ngIf='users'>
+    <thead>
     <tr>
-      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('userName')"><u>User
-            Name</u></a></th>
-      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('lastName')"><u>Name</u></a></th>
-      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('phoneNumber')"><u>Phone</u></a></th>
-      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('email')"><u>Email</u></a></th>
+      <!-- <th class="table-secondary btn-link"> -->
+      <th><a class="btn btn-link font-weight-bold" (click)="setSortBy('userName')"><u>Username</u></a></th>
+      <th><a class="btn btn-link font-weight-bold" (click)="setSortBy('lastName')"><u>Name</u></a></th>
+      <th><a class="btn btn-link font-weight-bold" (click)="setSortBy('phoneNumber')"><u>Phone</u></a></th>
+      <th><a class="btn btn-link font-weight-bold" (click)="setSortBy('email')"><u>Email</u></a></th>
       <th>Reviewer</th>
       <th>Admin</th>
       <th>Action</th>
     </tr>
+  </thead>
     <tr *ngFor='let user of users | sort: {sortBy: sortBy, direction: direction}'>
       <td>{{user.userName}}</td>
       <td>{{user.lastName}}, {{user.firstName}}</td>
@@ -31,4 +35,5 @@
       </td>
     </tr>
   </table>
+
 </div>

@@ -29,20 +29,65 @@
   body.jw-modal-open {
     overflow: hidden;
   }
-  body {
+  /* body {
     padding-top: 75px;
     background-color: #d1ccc0;
     font-size: 1.5em;
-  }
+  } */
   .center {
     text-align: center;
   }
 
-  .btn {
+  /* .btn {
     font-size: .9em;
-  }
+  } */
 
   input[type=checkbox] {
     transform: scale(2.0);
     margin-top: 10px;
   }
+
+  /* Rachael's CSS additions */
+body {
+    /* margin: 0; */
+    /* background: url(img/office1.jpeg) no-repeat center fixed; */
+    background: rgb(180, 180, 209);
+    background-size: cover;
+    height: 1500px;
+    padding-top: 75px;
+}
+h1 {
+  text-align: center;
+}
+/* Style List Tables */
+td {
+  background: rgb(189, 201, 218);
+}
+thead {
+  font-size: 15pt;
+  font-weight: bold;
+  background: lightgray;
+}
+a {
+  color: rgb(32, 13, 109);
+}
+
+nav {
+  font-size: 16pt;
+}
+
+.box {
+  background: rgb(189, 201, 218);
+  margin-left: 150px;
+  margin-right: 150px;
+  padding: 20px;
+}
+.list-box {
+  padding: 15px;
+  font-size: 14pt;
+}
+.btn {
+  text-align: center;
+  font-size: 14pt;
+}
+

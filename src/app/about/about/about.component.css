@@ -1,0 +1,38 @@
+p {
+    font-size: 14pt;
+}
+h1 {
+  font-size: 35pt;
+  text-align: center;
+  padding: 0;
+}
+h2 {
+    text-align: center;
+    padding: 0;
+}
+table {
+    width: 100%;
+    font-size: 14pt;
+    /* padding-left: 150px; */
+}
+
+.wrapper {
+    column-count: 1;
+    /* column-gap: 50px; */
+    /* padding: 0 50px; */
+  }
+.pic1 {
+    float: left;
+    width: 45%;
+    margin-right: 20px;
+  }
+ .pic2 {
+    float: right;
+    width: 45%;
+    margin-left: 20px;
+  }
+.pic3 {
+    float: left;
+    width: 50%;
+    margin-right: 20px;
+  }
