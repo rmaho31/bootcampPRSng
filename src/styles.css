@@ -61,7 +61,7 @@ h1 {
 }
 
 /* Style List Tables */
-td {
+tbody {
   background: rgb(189, 201, 218);
 }
 thead {

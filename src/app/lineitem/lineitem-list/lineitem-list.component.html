@@ -62,8 +62,9 @@
   </tbody>
   </table>
   <div class="container center" *ngIf="purchaseRequest">
-    <h3 class="display-4">{{title}} | <span *ngIf="purchaseRequest.status === 'New' && this.syssvc.user.id === purchaseRequest.user.id"><a routerLink='/lineitems/create/{{purchaseRequest.id}}'>
-          <img id='createnew' width='30' height='30' src='assets/createNew.png' title='Add New'></a></span></h3>
+    <h1 class="display-4">{{title}} | <span *ngIf="purchaseRequest.status === 'New' && this.syssvc.user.id === purchaseRequest.user.id"><a routerLink='/lineitems/create/{{purchaseRequest.id}}'>
+          <img id='createnew' width='30' height='30' src='assets/createNew.png' title='Add New'></a></span>
+    </h1>
   </div>
   <div *ngIf='!lineitems'>
     <img src='assets/loading.gif'>
@@ -71,9 +72,9 @@
   <table class="table table-sm" *ngIf='lineitems'>
     <thead>
     <tr>
-      <th class="table-secondary btn-link"><u>Product</u></th>
-      <th class="table-secondary btn-link"><u>Price</u></th>
-      <th class="table-secondary btn-link"><u>Quantity</u></th>
+      <th ><u>Product</u></th>
+      <th ><u>Price</u></th>
+      <th ><u>Quantity</u></th>
       <th>Action</th>
     </tr>
   </thead>
