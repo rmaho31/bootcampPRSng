@@ -30,9 +30,9 @@
       <th>Photo Path:</th>
       <td><img src="{{product.photoPath}}"></td>
     </tr>
-    <div class = "butn">
-      <a routerLink='/products/edit/{{product.id}}' class='btn btn-primary' title='Edit'>Edit</a>
-      <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
-    </div>
   </table>
+  <div class = "butn">
+      <a *ngIf="this.syssvc.user.admin" routerLink='/products/edit/{{product.id}}' class='btn btn-primary' title='Edit'>Edit</a>
+      <button *ngIf="this.syssvc.user.admin" (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+  </div>
 </div>

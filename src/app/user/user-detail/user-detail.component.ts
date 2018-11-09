@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { User } from '../../classes/user';
 import { delay } from 'rxjs/internal/operators';
+import { SystemService } from 'src/app/services/system.service';
 
 @Component({
   selector: 'app-user-detail',
@@ -17,6 +18,7 @@ export class UserDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private usersvc: UserService,
+    private syssvc: SystemService,
     private router: Router) { }
 
   ngOnInit() {

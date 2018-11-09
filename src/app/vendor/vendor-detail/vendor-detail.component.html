@@ -39,12 +39,13 @@
       <td>{{vendor.email}}</td>
     </tr>
     <tr>
-      <th>Pre-Approved:</th>
-      <td>{{vendor.preApproved ? "Yes" : "No"}}</td>
+      <td>Pre-Approved</td>
+      <td>{{vendor.preApproved?"Yes":"No"}}</td>
     </tr>
   </table>
   <div class = "butn">
-    <a routerLink='/vendors/edit/{{vendor.id}}' class='btn btn-primary' title='Edit'>Edit</a>
-    <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+    <a *ngIf="this.syssvc.user.admin" routerLink='/vendors/edit/{{vendor.id}}' class='btn btn-primary'
+          title='Edit'>Edit</a>
+    <button *ngIf="this.syssvc.user.admin" (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
   </div>
 </div>

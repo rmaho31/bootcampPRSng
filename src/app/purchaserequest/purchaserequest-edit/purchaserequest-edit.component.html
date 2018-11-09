@@ -8,16 +8,6 @@
   <div *ngIf='purchaserequest'>
     <form #myForm="ngForm">
       <div class="form-group row">
-        <label class='col-form-label col-sm-2' for="user">User:</label>
-        <div class="col-sm-8">
-          <input [(ngModel)]='purchaserequest.user.userName' name='user' type="text" class="form-control" id="user"
-            #user="ngModel" required>
-        </div>
-        <div *ngIf="user.invalid && user.touched" class="col-form-label col-sm-2 text-danger">
-          <label *ngIf="user?.errors.required">Required</label>
-        </div>
-      </div>
-      <div class="form-group row">
         <label class='col-form-label col-sm-2' for="description">Description:</label>
         <div class="col-sm-8">
           <input [(ngModel)]='purchaserequest.description' name='description' type="text" class="form-control" id="description"
@@ -41,10 +31,11 @@
         <label class='col-form-label col-sm-2' for="dateNeeded">Date Needed:</label>
         <div class="col-sm-8">
           <input [(ngModel)]='purchaserequest.dateNeeded' name='dateNeeded' type="text" class="form-control" id="dateNeeded"
-            #dateNeeded="ngModel" required>
+            #dateNeeded="ngModel" required pattern="\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])">
         </div>
         <div *ngIf="dateNeeded.invalid && dateNeeded.touched" class="col-form-label col-sm-2 text-danger">
           <label *ngIf="dateNeeded?.errors.required">Required</label>
+          <label *ngIf="dateNeeded?.errors.pattern">YYYY-MM-DD</label>
         </div>
       </div>
       <div class="form-group row">
@@ -57,47 +48,6 @@
           <label *ngIf="deliveryMode?.errors.required">Required</label>
         </div>
       </div>
-      <div class="form-group row">
-        <label class='col-form-label col-sm-2' for="status">Status:</label>
-        <div class="col-sm-8">
-          <input [(ngModel)]='purchaserequest.status' name='status' type="text" class="form-control" id="status"
-            #status="ngModel" required>
-        </div>
-        <div *ngIf="status.invalid && status.touched" class="col-form-label col-sm-2 text-danger">
-          <label *ngIf="status?.errors.required">Required</label>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class='col-form-label col-sm-2' for="total">Total:</label>
-        <div class="col-sm-8">
-          <input [(ngModel)]='purchaserequest.total' name='total' type="text" class="form-control" id="total" #total="ngModel"
-            required>
-        </div>
-        <div *ngIf="total.invalid && total.touched" class="col-form-label col-sm-2 text-danger">
-          <label *ngIf="total?.errors.required">Required</label>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class='col-form-label col-sm-2' for="submittedDate">Submitted Date:</label>
-        <div class="col-sm-8">
-          <input [(ngModel)]='purchaserequest.submittedDate' name='submittedDate' type="text" class="form-control" id="submittedDate"
-            #submittedDate="ngModel" required>
-        </div>
-        <div *ngIf="submittedDate.invalid && submittedDate.touched" class="col-form-label col-sm-2 text-danger">
-          <label *ngIf="submittedDate?.errors.required">Required</label>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class='col-form-label col-sm-2' for="reasonForRejection">ReasonForRejection:</label>
-        <div class="col-sm-8">
-          <input [(ngModel)]='purchaserequest.reasonForRejection' name='reasonForRejection' type="text" class="form-control"
-            id="reasonForRejection" #reasonForRejection="ngModel" required>
-        </div>
-        <div *ngIf="reasonForRejection.invalid && reasonForRejection.touched" class="col-form-label col-sm-2 text-danger">
-          <label *ngIf="reasonForRejection?.errors.required">Required</label>
-        </div>
-      </div>
-      <div class='butn'>
         <button (click)='save()' class='btn btn-primary' [disabled]="!myForm.valid">Update</button>
       </div>
     </form>

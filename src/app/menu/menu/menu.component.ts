@@ -3,6 +3,7 @@ import { ActivatedRoute, UrlSegment } from '@angular/router';
 import { Menu } from '../menu'
 import { GsearchService } from 'src/app/services/gsearch.service';
 import { ModalService } from 'src/app/services/modal.service';
+import { SystemService } from 'src/app/services/system.service';
 
 @Component({
   selector: 'app-menu',
@@ -23,6 +24,7 @@ export class MenuComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private gsearchsvc: GsearchService,
+    private syssvc: SystemService,
     private modalsvc: ModalService) { }
 
   ngOnInit() {
