@@ -15,7 +15,7 @@ import { SystemService } from 'src/app/services/system.service';
 export class LineItemListComponent implements OnInit {
   lineitems: LineItem[];
   purchaseRequest: PurchaseRequest;
-  title: string = "LineItem List";
+  title: string = "Line Item List";
   sortBy: string = "";
 
   constructor(private lineitemSvc: LineItemService,
