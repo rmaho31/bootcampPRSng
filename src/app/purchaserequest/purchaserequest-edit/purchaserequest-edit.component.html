@@ -44,9 +44,9 @@
           <input [(ngModel)]='purchaserequest.deliveryMode' name='deliveryMode' type="text" class="form-control" id="deliveryMode"
             #deliveryMode="ngModel" required>
         </div>
-        <div *ngIf="deliveryMode.invalid && deliveryMode.touched" class="col-form-label col-sm-2 text-danger">
-          <label *ngIf="deliveryMode?.errors.required">Required</label>
-        </div>
+      </div>
+      <div *ngIf="deliveryMode.invalid && deliveryMode.touched" class="col-form-label col-sm-2 text-danger">
+        <label *ngIf="deliveryMode?.errors.required">Required</label>
       </div>
       <div>
         <button (click)='save()' class='btn btn-primary' [disabled]="!myForm.valid">Update</button>
