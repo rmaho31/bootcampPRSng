@@ -1,4 +1,4 @@
-<div class='component-content'>
+<div class='detail-box'>
   <div class="container center">
     <h1 class="display-4">{{title}}</h1>
   </div>
@@ -7,42 +7,40 @@
   </div>
   <table class="table table-sm" *ngIf='user'>
     <tr>
-      <td>Id</td>
+      <th>Id:</th>
       <td>{{user.id}}</td>
     </tr>
     <tr>
-      <td>UserName</td>
+      <th>Username:</th>
       <td>{{user.userName}}</td>
     </tr>
     <tr>
-      <td>FirstName</td>
+      <th>First Name:</th>
       <td>{{user.firstName}}</td>
     </tr>
     <tr>
-      <td>LastName</td>
+      <th>Last Name:</th>
       <td>{{user.lastName}}</td>
     </tr>
     <tr>
-      <td>Phone</td>
+      <th>Phone:</th>
       <td>{{user.phoneNumber}}</td>
     </tr>
     <tr>
-      <td>Email</td>
+      <th>Email:</th>
       <td>{{user.email}}</td>
     </tr>
     <tr>
-      <td>Reviewer</td>
+      <th>Reviewer:</th>
       <td>{{user.reviewer?"Yes":"No"}}</td>
     </tr>
     <tr>
-      <td>Admin</td>
-      <td>{{user.admin?"Yes":"No"}}</td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <a routerLink='/users/edit/{{user.id}}' class='btn btn-primary' title='Edit'>Edit</a>
-        <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
-      </td>
+      <th>Admin:</th>
+      <td>{{user.admin ? "Yes" : "No"}}</td>
     </tr>
   </table>
+  <div class = "butn">
+    <a routerLink='/users/edit/{{user.id}}' class='btn btn-primary' title='Edit'>Edit</a>
+    <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+  </div>
 </div>

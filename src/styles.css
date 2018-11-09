@@ -49,13 +49,15 @@
 
   /* Rachael's CSS additions */
 body {
-    background: rgb(143, 143, 228);
+    /* background: rgb(143, 143, 228); */
+    background: url(assets/office_background.jpeg) no-repeat center fixed;
     background-size: cover;
     height: 1500px;
     padding-top: 75px;
 }
 h1 {
   text-align: center;
+  background: lightgray;
 }
 
 /* Style List Tables */
@@ -80,6 +82,7 @@ nav {
   margin-left: 150px;
   margin-right: 150px;
   padding: 20px;
+  font-size: 14pt;
 }
 .list-box {
   padding: 15px;
@@ -89,6 +92,14 @@ nav {
   background: rgb(189, 201, 218);
   margin-left: 175px;
   margin-right: 175px;
+  margin-top: 50px;
+  padding: 20px;
+  font-size: 14pt;
+}
+.detail-box {
+  background: rgb(189, 201, 218);
+  margin-left: 250px;
+  margin-right: 250px;
   margin-top: 50px;
   padding: 20px;
   font-size: 14pt;

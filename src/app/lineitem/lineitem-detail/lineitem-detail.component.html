@@ -1,4 +1,4 @@
-<div class='component-content'>
+<div class='detail-box'>
   <div class="container center">
     <h1 class="display-4">{{title}}</h1>
   </div>
@@ -7,26 +7,30 @@
   </div>
   <table class="table table-sm" *ngIf='lineitem'>
     <tr>
-      <td>UserName</td>
+      <th>UserName:</th>
       <td>{{lineitem.purchaseRequest.user.userName}}</td>
     </tr>
     <tr>
-      <td>Product Name</td>
+      <th>Product Name:</th>
       <td>{{lineitem.product.name}}</td>
     </tr>
     <tr>
-      <td>Product Price</td>
+      <th>Product Price:</th>
       <td>{{lineitem.product.price | currency}}</td>
     </tr>
     <tr>
-      <td>Quantity</td>
+      <th>Quantity:</th>
       <td>{{lineitem.quantity}}</td>
     </tr>
-    <tr>
+    <!-- <tr>
       <td colspan="2">
         <a routerLink='/lineitems/edit/{{lineitem.id}}' class='btn btn-primary' title='Edit'>Edit</a>
         <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
       </td>
-    </tr>
+    </tr> -->
+    <div class = "butn">
+      <a routerLink='/lineitems/edit/{{lineitem.id}}' class='btn btn-primary' title='Edit'>Edit</a>
+      <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+    </div>
   </table>
 </div>
