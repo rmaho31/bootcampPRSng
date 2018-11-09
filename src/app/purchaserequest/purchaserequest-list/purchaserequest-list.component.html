@@ -24,6 +24,7 @@
       <th>Action</th>
     </tr>
   </thead>
+  <tbody>
     <tr *ngFor='let purchaserequest of purchaserequests'>
       <td>{{purchaserequest.user.userName}}</td>
       <td>{{purchaserequest.description}}</td>
@@ -43,5 +44,6 @@
             title='LineItems'></a>
       </td>
     </tr>
+  </tbody>
   </table>
 </div>

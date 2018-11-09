@@ -1,4 +1,4 @@
-<div class='component-content'>
+<div class='edit-box'>
   <div class="container center">
     <h1 class="display-4">{{title}}</h1>
   </div>
@@ -94,7 +94,7 @@
           <input [(ngModel)]="vendor.preApproved" class="form-control" type="checkbox" name="preApproved" #preApproved="ngModel">
         </div>
       </div>
-      <div class='form-group'>
+      <div class='butn'>
         <button (click)='save()' class='btn btn-primary' [disabled]="!myForm.valid">Update</button>
       </div>
     </form>

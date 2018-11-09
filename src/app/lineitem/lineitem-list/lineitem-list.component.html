@@ -8,6 +8,7 @@
    
   <div class = "LIbox">
   <table class="table table-sm" *ngIf='purchaseRequest'>
+    <tbody>
     <tr>
       <td class = "weight">User:</td>
       <td>{{purchaseRequest.user.userName}}</td>
@@ -36,10 +37,12 @@
       <td class = "weight">Reason For Rejection:</td>
       <td>{{purchaseRequest.reasonForRejection}}</td>
     </tr>
+  </tbody>
   </table>
 </div>
 
   <table class="table table-sm" *ngIf='purchaseRequest'>
+    <tbody>
     <tr>
       <td class = "weight">Description:</td>
       <td>{{purchaseRequest.description}}</td>
@@ -56,6 +59,7 @@
       <td class = "weight">Submitted:</td>
       <td>{{purchaseRequest.submittedDate | date}}</td>
     </tr>
+  </tbody>
   </table>
 
   <div class="container center">

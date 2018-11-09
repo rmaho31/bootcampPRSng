@@ -23,6 +23,7 @@
       <th>Action</th>
     </tr>
   </thead>
+  <tbody>
     <tr *ngFor='let vendor of vendors | sort: {sortBy: sortBy, direction: direction}'>
       <td>{{vendor.code}}</td>
       <td>{{vendor.name}}</td>
@@ -40,5 +41,6 @@
             title='Edit'></a>
       </td>
     </tr>
+  </tbody>
   </table>
 </div>
