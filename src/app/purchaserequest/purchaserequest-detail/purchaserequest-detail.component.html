@@ -51,8 +51,8 @@
     </tr> -->
   </table>
   <div class = "butn">
-    <button (click)="submit()" class='btn btn-danger' title='Submit' *ngIf="this.purchaserequest.user.id === this.systemsvc.user.id && this.purchaserequest.status === 'New'">Submit</button>
-    <a routerLink='/purchaserequests/edit/{{purchaserequest.id}}' class='btn btn-primary' title='Edit'>Edit</a>
-    <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+    <button (click)="submit()" class='btn btn-danger' title='Submit' *ngIf="purchaserequest.user.id === this.syssvc.user.id && purchaserequest.status === 'New'">Submit</button>
+        <a *ngIf="purchaserequest.user.id === this.syssvc.user.id && purchaserequest.status === 'New'" routerLink='/purchaserequests/edit/{{purchaserequest.id}}' class='btn btn-primary' title='Edit'>Edit</a>
+        <button *ngIf="syssvc.user.admin || purchaserequest.user.id === this.syssvc.user.id" (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
   </div>
 </div>
