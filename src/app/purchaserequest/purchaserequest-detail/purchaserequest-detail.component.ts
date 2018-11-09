@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { PurchaseRequestService } from '../../services/purchaserequest.service';
 import { PurchaseRequest } from '../../classes/purchaserequest';
-import { delay } from 'rxjs/internal/operators';
 import { SystemService } from 'src/app/services/system.service';
 
 @Component({
@@ -18,7 +17,7 @@ export class PurchaseRequestDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private purchaserequestsvc: PurchaseRequestService,
-    private systemsvc: SystemService,
+    private syssvc: SystemService,
     private router: Router) { }
 
   ngOnInit() {

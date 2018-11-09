@@ -40,8 +40,8 @@
     </tr>
     <tr>
       <td colspan="2">
-        <a routerLink='/users/edit/{{user.id}}' class='btn btn-primary' title='Edit'>Edit</a>
-        <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+        <a *ngIf="this.syssvc.user.admin || this.syssvc.user.id === this.user.id" routerLink='/users/edit/{{user.id}}' class='btn btn-primary' title='Edit'>Edit</a>
+        <button *ngIf="this.syssvc.user.admin && this.syssvc.user.id !== this.user.id" (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
       </td>
     </tr>
   </table>
