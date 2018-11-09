@@ -45,7 +45,7 @@
     <tr>
       <td colspan="2">
         <button (click)="submit()" class='btn btn-danger' title='Submit' *ngIf="purchaserequest.user.id === this.syssvc.user.id && purchaserequest.status === 'New'">Submit</button>
-        <a *ngIf="purchaserequest.user.id === this.syssvc.user.id" routerLink='/purchaserequests/edit/{{purchaserequest.id}}' class='btn btn-primary' title='Edit'>Edit</a>
+        <a *ngIf="purchaserequest.user.id === this.syssvc.user.id && purchaserequest.status === 'New'" routerLink='/purchaserequests/edit/{{purchaserequest.id}}' class='btn btn-primary' title='Edit'>Edit</a>
         <button *ngIf="syssvc.user.admin || purchaserequest.user.id === this.syssvc.user.id" (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
       </td>
     </tr>
