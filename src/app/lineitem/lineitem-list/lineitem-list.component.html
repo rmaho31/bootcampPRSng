@@ -1,39 +1,65 @@
-<div class='component-content'>
+<div class='list-box'>
   <div class="container center">
-    <h1 class="display-4">PurchaseRequest</h1>
+    <h1 class="display-4">Purchase Request</h1>
   </div>
   <div *ngIf='!purchaseRequest'>
     <img src='assets/loading.gif'>
   </div>
+   
+  <div class = "LIbox">
   <table class="table table-sm" *ngIf='purchaseRequest'>
+    <tbody>
     <tr>
-      <td>User</td>
+      <td class = "weight">User:</td>
       <td>{{purchaseRequest.user.userName}}</td>
-      <td>Description</td>
+      <!-- <td>Description</td>
+      <td>{{purchaseRequest.description}}</td> -->
+    </tr>
+    <tr>
+      <td class = "weight">Justification:</td>
+      <td>{{purchaseRequest.justification}}</td>
+      <!-- <td>Date Needed</td>
+      <td>{{purchaseRequest.dateNeeded | date}}</td> -->
+    </tr>
+    <tr>
+      <td class = "weight">Delivery:</td>
+      <td>{{purchaseRequest.deliveryMode}}</td>
+      <!-- <td>Status</td>
+      <td>{{purchaseRequest.status}}</td> -->
+    </tr>
+    <tr>
+      <td class = "weight">Total:</td>
+      <td>{{purchaseRequest.total | currency}}</td>
+      <!-- <td>Submitted Date</td>
+      <td>{{purchaseRequest.submittedDate | date}}</td> -->
+    </tr>
+    <tr>
+      <td class = "weight">Reason For Rejection:</td>
+      <td>{{purchaseRequest.reasonForRejection}}</td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+
+  <table class="table table-sm" *ngIf='purchaseRequest'>
+    <tbody>
+    <tr>
+      <td class = "weight">Description:</td>
       <td>{{purchaseRequest.description}}</td>
     </tr>
     <tr>
-      <td>Justification</td>
-      <td>{{purchaseRequest.justification}}</td>
-      <td>Date Needed</td>
+      <td class = "weight">Needed:</td>
       <td>{{purchaseRequest.dateNeeded | date}}</td>
     </tr>
     <tr>
-      <td>Delivery Mode</td>
-      <td>{{purchaseRequest.deliveryMode}}</td>
-      <td>Status</td>
+      <td class = "weight">Status:</td>
       <td>{{purchaseRequest.status}}</td>
     </tr>
     <tr>
-      <td>Total</td>
-      <td>{{purchaseRequest.total | currency}}</td>
-      <td>Submitted Date</td>
+      <td class = "weight">Submitted:</td>
       <td>{{purchaseRequest.submittedDate | date}}</td>
     </tr>
-    <tr>
-      <td>Reason For Rejection</td>
-      <td>{{purchaseRequest.reasonForRejection}}</td>
-    </tr>
+  </tbody>
   </table>
   <div class="container center" *ngIf="purchaseRequest">
     <h3 class="display-4">{{title}} | <span *ngIf="purchaseRequest.status === 'New' && this.syssvc.user.id === purchaseRequest.user.id"><a routerLink='/lineitems/create/{{purchaseRequest.id}}'>
@@ -43,11 +69,14 @@
     <img src='assets/loading.gif'>
   </div>
   <table class="table table-sm" *ngIf='lineitems'>
+    <thead>
     <tr>
       <th class="table-secondary btn-link"><u>Product</u></th>
       <th class="table-secondary btn-link"><u>Price</u></th>
       <th class="table-secondary btn-link"><u>Quantity</u></th>
+      <th>Action</th>
     </tr>
+  </thead>
     <tr *ngFor='let lineitem of lineitems'>
       <td>{{lineitem.product.name}}</td>
       <td>{{lineitem.product.price | currency}}</td>

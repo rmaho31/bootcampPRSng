@@ -34,6 +34,8 @@ import { AboutComponent } from './about/about/about.component';
 
 const routes: Routes = [
   {path:'', redirectTo: '/users/login', pathMatch: 'full'},
+  // {path:'', redirectTo: 'home', pathMatch: 'full'},
+
   {path:'users/list', component: UserListComponent},
   {path:'users/create', component: UserCreateComponent},
   {path:'users/detail/:id', component: UserDetailComponent},

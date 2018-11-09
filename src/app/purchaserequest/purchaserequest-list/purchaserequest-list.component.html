@@ -1,27 +1,30 @@
-<div class='component-content'>
+<div class='list-box'>
   <div class="container center">
     <h1 class="display-4">{{title}} | <span><a routerLink='/purchaserequests/create'>
           <img id='createnew' width='40' height='40' src='assets/createNew.png' title='Add New'></a> |
       </span>
-      <span *ngIf="this.syssvc.user.reviewer"><a routerLink='/purchaserequests/review'>
-          Review</a>
+      <span *ngIf="this.syssvc.user.reviewer"><a routerLink='/purchaserequests/review'>Review</a>
       </span></h1>
   </div>
   <div *ngIf='!purchaserequests'>
     <img src='assets/loading.gif'>
   </div>
   <table class="table table-sm" *ngIf='purchaserequests'>
+    <thead>
     <tr>
       <th class="table-secondary btn-link"><u>User</u></th>
       <th class="table-secondary btn-link"><u>Description</u></th>
       <th class="table-secondary btn-link"><u>Justification</u></th>
-      <th class="table-secondary btn-link"><u>Date Needed</u></th>
-      <th class="table-secondary btn-link"><u>Delivery Mode</u></th>
+      <th class="table-secondary btn-link"><u>Needed</u></th>
+      <th class="table-secondary btn-link"><u>Delivery</u></th>
       <th class="table-secondary btn-link"><u>Status</u></th>
       <th class="table-secondary btn-link"><u>Total</u></th>
-      <th class="table-secondary btn-link"><u>Submitted Date</u></th>
-      <th class="table-secondary btn-link"><u>ReasonForRejection</u></th>
+      <th class="table-secondary btn-link"><u>Submitted</u></th>
+      <th class="table-secondary btn-link"><u>Reason For Rejection</u></th>
+      <th>Action</th>
     </tr>
+  </thead>
+  <tbody>
     <tr *ngFor='let purchaserequest of purchaserequests'>
       <td>{{purchaserequest.user.userName}}</td>
       <td>{{purchaserequest.description}}</td>
@@ -41,5 +44,6 @@
             title='LineItems'></a>
       </td>
     </tr>
+  </tbody>
   </table>
 </div>
