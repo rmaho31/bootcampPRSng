@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { VendorService } from '../../services/vendor.service';
 import { Vendor } from '../../classes/vendor';
 import { delay } from 'rxjs/internal/operators';
+import { SystemService } from 'src/app/services/system.service';
 
 @Component({
   selector: 'app-vendor-detail',
@@ -16,6 +17,7 @@ export class VendorDetailComponent implements OnInit {
   title: string = "Vendor Detail"
 
   constructor(private route: ActivatedRoute,
+    private syssvc: SystemService,
     private vendorsvc: VendorService,
     private router: Router) { }
 

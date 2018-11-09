@@ -11,66 +11,73 @@
         <label class='col-form-label col-sm-2' for="code">Code:</label>
         <div class="col-sm-8">
           <input [(ngModel)]='vendor.code' name='code' type="text" class="form-control" id="code" #code="ngModel"
-            required>
+            required maxlength="10">
         </div>
         <div *ngIf="code.invalid && code.touched" class="col-form-label col-sm-2 text-danger">
           <label *ngIf="code?.errors.required">Required</label>
+          <label *ngIf="code?.errors.maxlength">Max 10 Chars</label>
         </div>
       </div>
       <div class="form-group row">
         <label class='col-form-label col-sm-2' for="name">Name:</label>
         <div class="col-sm-8">
           <input [(ngModel)]='vendor.name' name='name' type="text" class="form-control" id="name" #name="ngModel"
-            required>
+            required maxlength="255">
         </div>
         <div *ngIf="name.invalid && name.touched" class="col-form-label col-sm-2 text-danger">
           <label *ngIf="name?.errors.required">Required</label>
+          <label *ngIf="name?.errors.maxlength">Max Chars 255</label>
         </div>
       </div>
       <div class="form-group row">
         <label class='col-form-label col-sm-2' for="address">Address:</label>
         <div class="col-sm-8">
           <input [(ngModel)]='vendor.address' name='address' type="text" class="form-control" id="address" #address="ngModel"
-            required>
+            required maxlength="255">
         </div>
         <div *ngIf="address.invalid && address.touched" class="col-form-label col-sm-2 text-danger">
           <label *ngIf="address?.errors.required">Required</label>
+          <label *ngIf="address?.errors.maxlength">Max Chars 255</label>
         </div>
       </div>
       <div class="form-group row">
         <label class='col-form-label col-sm-2' for="city">City:</label>
         <div class="col-sm-8">
           <input [(ngModel)]='vendor.city' name='city' type="text" class="form-control" id="city" #city="ngModel"
-            required>
+            required maxlength="255">
         </div>
         <div *ngIf="city.invalid && city.touched" class="col-form-label col-sm-2 text-danger">
           <label *ngIf="city?.errors.required">Required</label>
+          <label *ngIf="city?.errors.maxlength">Max Chars 255</label>
         </div>
       </div>
       <div class="form-group row">
         <label class='col-form-label col-sm-2' for="state">State:</label>
         <div class="col-sm-8">
           <input [(ngModel)]='vendor.state' name='state' type="text" class="form-control" id="state" #state="ngModel"
-            required>
+            required pattern="[a-zA-Z]{2}" placeholder="OH">
         </div>
         <div *ngIf="state.invalid && state.touched" class="col-form-label col-sm-2 text-danger">
           <label *ngIf="state?.errors.required">Required</label>
+          <label *ngIf="state?.errors.pattern">Must be 2 Letters</label>
         </div>
       </div>
       <div class="form-group row">
         <label class='col-form-label col-sm-2' for="zip">Zip:</label>
         <div class="col-sm-8">
-          <input [(ngModel)]='vendor.zip' name='zip' type="text" class="form-control" id="zip" #zip="ngModel" required>
+          <input [(ngModel)]='vendor.zip' name='zip' type="text" class="form-control" id="zip" #zip="ngModel" required
+            pattern="^\d{5}">
         </div>
         <div *ngIf="zip.invalid && zip.touched" class="col-form-label col-sm-2 text-danger">
           <label *ngIf="zip?.errors.required">Required</label>
+          <label *ngIf="zip?.errors.pattern">Five numbers</label>
         </div>
       </div>
       <div class="form-group row">
         <label class='col-form-label col-sm-2' for="phoneNumber">PhoneNumber:</label>
         <div class="col-sm-8">
           <input [(ngModel)]='vendor.phoneNumber' name='phoneNumber' type="tel" class="form-control" id="phoneNumber"
-            #phoneNumber="ngModel" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+            #phoneNumber="ngModel" required pattern="^[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="xxx-xxx-xxxx">
         </div>
         <div *ngIf="phoneNumber.invalid && phoneNumber.touched" class="col-form-label col-sm-2 text-danger">
           <label *ngIf="phoneNumber?.errors.required">Required</label>
@@ -81,11 +88,12 @@
         <label class='col-form-label col-sm-2' for="email">Email:</label>
         <div class="col-sm-8">
           <input [(ngModel)]='vendor.email' name='email' type="email" class="form-control" id="email" #email="ngModel"
-            required pattern=".+@.+.com">
+            required pattern=".+@.+.com" max="100">
         </div>
         <div *ngIf="email.invalid && email.touched" class="col-form-label col-sm-2 text-danger">
           <label *ngIf="email?.errors.required">Required</label>
           <label *ngIf="email?.errors.pattern">Invalid Email Format</label>
+          <label *ngIf="email?.errors.pattern">maxlength 100 Chars</label>
         </div>
       </div>
       <div class="form-group row">

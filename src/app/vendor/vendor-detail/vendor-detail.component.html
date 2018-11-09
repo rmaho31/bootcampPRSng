@@ -44,8 +44,9 @@
     </tr>
     <tr>
       <td colspan="2">
-        <a routerLink='/vendors/edit/{{vendor.id}}' class='btn btn-primary' title='Edit'>Edit</a>
-        <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+        <a *ngIf="this.syssvc.user.admin" routerLink='/vendors/edit/{{vendor.id}}' class='btn btn-primary'
+          title='Edit'>Edit</a>
+        <button *ngIf="this.syssvc.user.admin" (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
       </td>
     </tr>
   </table>

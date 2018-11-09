@@ -38,7 +38,7 @@
       <td class='actions'>
         <a routerLink='/purchaserequests/detail/{{purchaserequest.id}}'><img src='assets/userDetail.png' width='50'
             height='50' title='Detail'></a>
-        <a routerLink='/purchaserequests/edit/{{purchaserequest.id}}'><img src='assets/userEdit.png' width='50' height='50'
+        <a *ngIf="purchaserequest.user.id === this.syssvc.user.id && purchaserequest.status === 'New'" routerLink='/purchaserequests/edit/{{purchaserequest.id}}'><img src='assets/userEdit.png' width='50' height='50'
             title='Edit'></a>
         <a routerLink='/lineitems/list/{{purchaserequest.id}}'><img src='assets/requestLines.png' width='50' height='50'
             title='LineItems'></a>
