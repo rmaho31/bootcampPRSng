@@ -1,4 +1,4 @@
-<div class='component-content'>
+<div class='detail-box'>
   <div class="container center">
     <h1 class="display-4">{{title}}</h1>
   </div>
@@ -7,47 +7,45 @@
   </div>
   <table class="table table-sm" *ngIf='vendor'>
     <tr>
-      <td>Code</td>
+      <th>Code:</th>
       <td>{{vendor.code}}</td>
     </tr>
     <tr>
-      <td>Name</td>
+      <th>Name:</th>
       <td>{{vendor.name}}</td>
     </tr>
     <tr>
-      <td>Address</td>
+      <th>Address:</th>
       <td>{{vendor.address}}</td>
     </tr>
     <tr>
-      <td>City</td>
+      <th>City:</th>
       <td>{{vendor.city}}</td>
     </tr>
     <tr>
-      <td>State</td>
+      <th>State:</th>
       <td>{{vendor.state}}</td>
     </tr>
     <tr>
-      <td>Zip</td>
+      <th>Zip:</th>
       <td>{{vendor.zip}}</td>
     </tr>
     <tr>
-      <td>Phone</td>
+      <th>Phone:</th>
       <td>{{vendor.phoneNumber}}</td>
     </tr>
     <tr>
-      <td>Email</td>
+      <th>Email:</th>
       <td>{{vendor.email}}</td>
     </tr>
     <tr>
-      <td>PreApproved</td>
+      <td>Pre-Approved</td>
       <td>{{vendor.preApproved?"Yes":"No"}}</td>
     </tr>
-    <tr>
-      <td colspan="2">
-        <a *ngIf="this.syssvc.user.admin" routerLink='/vendors/edit/{{vendor.id}}' class='btn btn-primary'
-          title='Edit'>Edit</a>
-        <button *ngIf="this.syssvc.user.admin" (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
-      </td>
-    </tr>
   </table>
+  <div class = "butn">
+    <a *ngIf="this.syssvc.user.admin" routerLink='/vendors/edit/{{vendor.id}}' class='btn btn-primary'
+          title='Edit'>Edit</a>
+    <button *ngIf="this.syssvc.user.admin" (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+  </div>
 </div>

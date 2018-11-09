@@ -1,4 +1,4 @@
-<div class="component-content">
+<div class="edit-box">
   <div class="container center">
     <h1 class="display-4">{{title}}</h1>
   </div>
@@ -7,47 +7,52 @@
   </div>
   <table class="table table-sm" *ngIf='purchaserequest'>
     <tr>
-      <td>User</td>
+      <th>User:</th>
       <td>{{purchaserequest.user.userName}}</td>
     </tr>
     <tr>
-      <td>Description</td>
+      <th>Description:</th>
       <td>{{purchaserequest.description}}</td>
     </tr>
     <tr>
-      <td>Justification</td>
+      <th>Justification:</th>
       <td>{{purchaserequest.justification}}</td>
     </tr>
     <tr>
-      <td>Date Needed</td>
+      <th>Date Needed:</th>
       <td>{{purchaserequest.dateNeeded | date}}</td>
     </tr>
     <tr>
-      <td>Delivery Mode</td>
+      <th>Delivery Mode:</th>
       <td>{{purchaserequest.deliveryMode}}</td>
     </tr>
     <tr>
-      <td>Status</td>
+      <th>Status:</th>
       <td>{{purchaserequest.status}}</td>
     </tr>
     <tr>
-      <td>Total</td>
+      <th>Total:</th>
       <td>{{purchaserequest.total | currency}}</td>
     </tr>
     <tr>
-      <td>Submitted Date</td>
+      <th>Submitted Date:</th>
       <td>{{purchaserequest.submittedDate | date}}</td>
     </tr>
     <tr>
-      <td>Reason For Rejection</td>
+      <th>Reason For Rejection:</th>
       <td>{{purchaserequest.reasonForRejection}}</td>
     </tr>
-    <tr>
+    <!-- <tr>
       <td colspan="2">
         <button (click)="submit()" class='btn btn-danger' title='Submit' *ngIf="purchaserequest.user.id === this.syssvc.user.id && purchaserequest.status === 'New'">Submit</button>
         <a *ngIf="purchaserequest.user.id === this.syssvc.user.id && purchaserequest.status === 'New'" routerLink='/purchaserequests/edit/{{purchaserequest.id}}' class='btn btn-primary' title='Edit'>Edit</a>
         <button *ngIf="syssvc.user.admin || purchaserequest.user.id === this.syssvc.user.id" (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
       </td>
-    </tr>
+    </tr> -->
   </table>
+  <div class = "butn">
+    <button (click)="submit()" class='btn btn-danger' title='Submit' *ngIf="this.purchaserequest.user.id === this.systemsvc.user.id && this.purchaserequest.status === 'New'">Submit</button>
+    <a routerLink='/purchaserequests/edit/{{purchaserequest.id}}' class='btn btn-primary' title='Edit'>Edit</a>
+    <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+  </div>
 </div>

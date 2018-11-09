@@ -1,4 +1,4 @@
-<div class='component-content'>
+<div class='detail-box'>
   <div class="container center">
     <h1 class="display-4">{{title}}</h1>
   </div>
@@ -7,34 +7,32 @@
   </div>
   <table class="table table-sm" *ngIf='product'>
     <tr>
-      <td>Vendor</td>
+      <th>Vendor:</th>
       <td>{{product.vendor.name}}</td>
     </tr>
     <tr>
-      <td>PartNumber</td>
+      <th>Part Number:</th>
       <td>{{product.partNumber}}</td>
     </tr>
     <tr>
-      <td>Name</td>
+      <th>Name:</th>
       <td>{{product.name}}</td>
     </tr>
     <tr>
-      <td>Price</td>
+      <th>Price:</th>
       <td>{{product.price}}</td>
     </tr>
     <tr>
-      <td>Unit</td>
+      <th>Unit:></th>
       <td>{{product.unit}}</td>
     </tr>
     <tr>
-      <td>Photo</td>
+      <th>Photo Path:</th>
       <td><img src="{{product.photoPath}}"></td>
     </tr>
-    <tr>
-      <td colspan="2">
-        <a *ngIf="this.syssvc.user.admin" routerLink='/products/edit/{{product.id}}' class='btn btn-primary' title='Edit'>Edit</a>
-        <button *ngIf="this.syssvc.user.admin" (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
-      </td>
-    </tr>
   </table>
+  <div class = "butn">
+      <a *ngIf="this.syssvc.user.admin" routerLink='/products/edit/{{product.id}}' class='btn btn-primary' title='Edit'>Edit</a>
+      <button *ngIf="this.syssvc.user.admin" (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+  </div>
 </div>
