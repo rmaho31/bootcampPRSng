@@ -24,7 +24,7 @@ export class MenuItemComponent implements OnInit {
 
   @Input() menu: Menu;
   constructor(private cookiesvc: CookieService,
-    private systemsvc: SystemService,
+    private syssvc: SystemService,
     private router: Router) { }
 
   ngOnInit() {
@@ -32,9 +32,9 @@ export class MenuItemComponent implements OnInit {
 
   logout() {
     if (confirm("Are you sure you want to logout?")) {
-      this.systemsvc.loggedIn = false;
-      this.systemsvc.rememberMe = false;
-      this.systemsvc.user = null;
+      this.syssvc.loggedIn = false;
+      this.syssvc.rememberMe = false;
+      this.syssvc.user = null;
       this.cookiesvc.delete('userName');
       this.cookiesvc.delete('password');
       this.router.navigateByUrl('users/login')

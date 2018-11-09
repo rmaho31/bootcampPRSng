@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PurchaseRequest } from 'src/app/classes/purchaserequest';
 import { PurchaseRequestService } from 'src/app/services/purchaserequest.service';
 import { SortPipe } from '../../pipe/sort.pipe';
+import { SystemService } from 'src/app/services/system.service';
 
 @Component({
   selector: 'app-lineitem-list',
@@ -19,6 +20,7 @@ export class LineItemListComponent implements OnInit {
 
   constructor(private lineitemSvc: LineItemService,
     private purchaserequestsvc: PurchaseRequestService,
+    private syssvc: SystemService,
     private route: ActivatedRoute) { }
 
   ngOnInit() {

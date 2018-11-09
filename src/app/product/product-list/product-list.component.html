@@ -1,6 +1,6 @@
 <div class='list-box'>
   <div class="container center">
-    <h1 class="display-4">{{title}} | <span><a routerLink='/products/create'>
+    <h1 class="display-4">{{title}} | <span *ngIf="this.syssvc.user.admin"><a routerLink='/products/create'>
           <img id='createnew' width='40' height='40' src='assets/createNew.png' title='Add New'></a>
       </span></h1>
   </div>
@@ -26,7 +26,7 @@
       <td>{{product.price | currency}}</td>
       <td class='actions'>
         <a routerLink='/products/detail/{{product.id}}'><img src='assets/userDetail.png' width='50' height='50' title='Detail'></a>
-        <a routerLink='/products/edit/{{product.id}}'><img src='assets/userEdit.png' width='50' height='50' title='Edit'></a>
+        <a *ngIf="this.syssvc.user.admin" routerLink='/products/edit/{{product.id}}'><img src='assets/userEdit.png' width='50' height='50' title='Edit'></a>
       </td>
     </tr>
   </tbody>
